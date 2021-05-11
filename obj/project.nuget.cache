@@ -1,0 +1,10 @@
+{
+  "version": 2,
+  "dgSpecHash": "vTx2fkYHf+dDZgSJtR7HNdSGsHz+BGjugacs5D0Qz8QJDT3YRpP3jjqBloCxnc1EdxTsjWOF5ieNamQ0BLXgmA==",
+  "success": true,
+  "projectFilePath": "C:\\Users\\rafis\\source\\repos\\Colman-Final-Web-Project\\Colman-Final-Web-Project.csproj",
+  "expectedPackageFiles": [
+    "C:\\Users\\rafis\\.nuget\\packages\\microsoft.visualstudio.azure.containers.tools.targets\\1.10.9\\microsoft.visualstudio.azure.containers.tools.targets.1.10.9.nupkg.sha512"
+  ],
+  "logs": []
+}
