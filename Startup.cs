@@ -1,4 +1,4 @@
-using Microsoft.AspNetCore.Builder;
+﻿using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.HttpsPolicy;
 using Microsoft.Extensions.Configuration;
@@ -8,6 +8,8 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using Microsoft.EntityFrameworkCore;
+using Colman_Final_Web_Project.Data;
 
 namespace Colman_Final_Web_Project
 {
@@ -24,6 +26,9 @@ namespace Colman_Final_Web_Project
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddControllersWithViews();
+
+            services.AddDbContext<Context>(options =>
+                    options.UseSqlServer(Configuration.GetConnectionString("Context")));
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
