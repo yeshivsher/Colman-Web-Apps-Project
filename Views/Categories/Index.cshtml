@@ -3,33 +3,92 @@
 @{
     ViewData["Title"] = "Index";
 }
+<head>
 
-<h1>Index</h1>
+    <link rel="stylesheet" href="@Url.Content("/css/pages/category.css")" type="text/css" />
+    <link rel="stylesheet" href="@Url.Content("/css/style.css")" type="text/css" />
 
-<p>
-    <a asp-action="Create">Create New</a>
-</p>
-<table class="table">
-    <thead>
-        <tr>
-            <th>
-                @Html.DisplayNameFor(model => model.Name)
-            </th>
-            <th></th>
-        </tr>
-    </thead>
-    <tbody>
-@foreach (var item in Model) {
-        <tr>
-            <td>
-                @Html.DisplayFor(modelItem => item.Name)
-            </td>
-            <td>
-                <a asp-action="Edit" asp-route-id="@item.Id">Edit</a> |
-                <a asp-action="Details" asp-route-id="@item.Id">Details</a> |
-                <a asp-action="Delete" asp-route-id="@item.Id">Delete</a>
-            </td>
-        </tr>
-}
-    </tbody>
-</table>
+    <title>Colman Fashion</title>
+
+    <link rel="stylesheet" href="css/pages/category.css" />
+    <link href="css/style.css" rel="stylesheet" />
+</head>
+<body>
+    <div class="page-container">
+        <header class="container mt-5">
+            <nav class="navbar navbar-expand-lg navbar-light bg-light">
+                <img src="@Url.Content("/images/logo.png")" height="40" />
+                <button class="navbar-toggler"
+                        type="button"
+                        data-toggle="collapse"
+                        data-target="#navbarNavAltMarkup"
+                        aria-controls="navbarNavAltMarkup"
+                        aria-expanded="false"
+                        aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+                    <div class="navbar-nav" style="height:20px">
+                        <p>&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp</p>
+                        <a asp-controller="Home" asp-action="Index">
+                            Home
+                        </a>
+                        <p>&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp</p>
+                        <a asp-controller="Categories" asp-action="Index">
+                            Categories
+                        </a>
+                        <p>&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp</p>
+                        <a asp-controller="Products" asp-action="Index">
+                            Products
+                        </a>
+                        <p>&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp</p>
+                        <a asp-controller="Suppliers" asp-action="Index">
+                            Suppliers
+                        </a>
+                        <p>&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp</p>
+                        <a asp-controller="Customers" asp-action="Index">All Users</a>
+                    </div>
+                </div>
+            </nav>
+        </header>
+
+        <div class="content">
+            <br />
+
+            <nav class="breadcrumb container">
+                <a asp-controller="Home" asp-action="Index">
+                    Home
+                </a>
+                <p>> &nbsp</p>
+                <span class="breadcrumb-item active">Categories</span>
+            </nav>
+
+            <div class="container">
+                <div class="row">
+                    <section class="col-9 products"
+                             data-products="limit:4 page:0 id:1679,807,786,1597"
+                             style="flex-grow:1; max-width:100%">
+                        <h2>Categories</h2>
+                        <div class="categories-container">
+                            @foreach (var item in Model)
+                            {
+                                <div class="single-category">
+                                    <a asp-action="Details" asp-route-id="@item.Id">
+                                        <div class="card">
+                                            <img class="card-img-top" src="@Url.Content($"/images/categories/{@item.Name}.png")" alt="Card image cap">
+                                            <div class="card-body">
+                                                <p class="card-text">@item.Name</p>
+                                            </div>
+                                        </div>
+                                    </a>
+                                </div>
+                            }
+
+                        </div>
+                    </section>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+

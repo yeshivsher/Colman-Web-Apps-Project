@@ -1,0 +1,13 @@
+.categories-container {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+    flex-wrap: wrap;
+}
+
+
+.single-category {
+    flex-basis: 30%;
+    margin: 10px;
+    
+}

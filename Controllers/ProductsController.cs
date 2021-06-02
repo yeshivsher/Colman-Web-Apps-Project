@@ -26,7 +26,7 @@ namespace Colman_Final_Web_Project.Controllers
         }
 
         // GET: Products/Details/5
-        public async Task<IActionResult> Details(int? id)
+        public async Task<IActionResult> Details(int? id, string name, string brand, string price)
         {
             if (id == null)
             {

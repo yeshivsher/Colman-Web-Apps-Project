@@ -2,12 +2,844 @@
     ViewData["Title"] = "Home Page";
 }
 
-<div class="text-center">
-    <img src="@Url.Content("/images/colman-logo.png")" alt="Colman-logo" style="width: 200px;"/>
-    <h1 class="display-4">Welcome To our Colman Web App!</h1>
-    <p>Go to list - <a href="http://localhost:55923/categories/index">Categories</a>.</p>
-    <p>Go to list - <a href="http://localhost:55923/customers/index">Customers</a>.</p>
-    <p>Go to list - <a href="http://localhost:55923/products/index">Products</a>.</p>
-    <p>Go to list - <a href="http://localhost:55923/purchases/index">Purchases</a>.</p>
-    <p>Go to list - <a href="http://localhost:55923/suppliers/index">Suppliers</a>.</p>
-</div>
+@*<div class="text-center">
+        <img src="@Url.Content("/images/colman-logo.png")")" alt="Colman-logo" style="width: 200px;"/>
+        <h1 class="display-4">Welcome To our Colman Web App!</h1>
+        <p>Go to list - <a href="http://localhost:55923/categories/index">Categories</a>.</p>
+        <p>Go to list - <a href="http://localhost:55923/customers/index">Customers</a>.</p>
+        <p>Go to list - <a href="http://localhost:55923/products/index">Products</a>.</p>
+        <p>Go to list - <a href="http://localhost:55923/purchases/index">Purchases</a>.</p>
+        <p>Go to list - <a href="http://localhost:55923/suppliers/index">Suppliers</a>.</p>
+    </div>*@
+
+<head>
+    <meta charset="utf-8" />
+    <!-- base href="/app/public/themes/default/" -->
+    <base href="" />
+    @*<link rel="icon" href="../../favicon.ico" />*@
+
+    <title>Colman Fashion</title>
+
+    <link rel="stylesheet" href="@Url.Content("/css/pages/index.css")" type="text/css" />
+    <link rel="stylesheet" href="@Url.Content("/css/style.css")" type="text/css" />
+
+    <!--<link rel="stylesheet" href="css/pages/index.css" />-->
+    <!-- Bootstrap core CSS -->
+    <!--<link href="css/style.css" rel="stylesheet" />-->
+    <!-- link href="css/bootstrap.css" rel="stylesheet"-->
+    <!-- link href="css/stylesheet.css" rel="stylesheet"-->
+</head>
+
+<body>
+    <div class="page-container">
+        <header class="container mt-5">
+            <nav class="navbar navbar-expand-lg navbar-light bg-light">
+                <img src="@Url.Content("/images/logo.png")" height="40" />
+                <button class="navbar-toggler"
+                        type="button"
+                        data-toggle="collapse"
+                        data-target="#navbarNavAltMarkup"
+                        aria-controls="navbarNavAltMarkup"
+                        aria-expanded="false"
+                        aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+                    <div class="navbar-nav" style="height:20px">
+                        <p>&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp</p>
+                        <a asp-controller="Home" asp-action="Index">
+                            Home
+                        </a>
+                        <p>&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp</p>
+                        <a asp-controller="Categories" asp-action="Index">
+                            Categories
+                        </a>
+                        <p>&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp</p>
+                        <a asp-controller="Products" asp-action="Index">
+                            Products
+                        </a>
+                        <p>&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp</p>
+                        <a asp-controller="Suppliers" asp-action="Index">
+                            Suppliers
+                        </a>
+                        <p>&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp</p>
+                        <a asp-controller="Customers" asp-action="Index">All Users</a>
+                    </div>
+                </div>
+            </nav>
+        </header>
+        <br />
+
+        <div class="content">
+            <div id="slider" class="carousel slide slider">
+
+                <div class="carousel-inner" role="listbox">
+                    <div class="carousel-item active">
+                        <div class="">
+                            <div class="carousel-caption d-none d-md-block text-left container">
+                                <div class="caption-text float-left col-md-4">
+                                    <h1 class="font-weight-bold">
+                                        SUMMER COLLECTION SALE 2021
+                                    </h1>
+                                    <p class="font-weight-normal pb-4">
+                                        Get ready to dazzle your friends with our new and stunning
+                                        summer clearance sale
+                                    </p>
+                                    <p>
+                                        <a class="btn btn-md btn-outline-primary font-weight-bold px-5 py-2"
+                                           href="https://localhost:44328/products/index"
+                                           role="button">
+                                            Sale &ensp; <i class="la la-arrow-right"></i>
+                                        </a>
+                                    </p>
+                                </div>
+                                <img src="@Url.Content("/images/home_banner.png")" class="float-right col-md-8" />
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                </a>
+            </div>
+
+            <div class="container products-tab-carousel">
+                <div class="nav nav-tabs" id="nav-tab" role="tablist">
+                    <a class="nav-item nav-link active"
+                       id="nav-home-tab"
+                       data-toggle="tab"
+                       href="#nav-home"
+                       role="tab"
+                       aria-controls="nav-home"
+                       aria-selected="true">Featured products</a>
+
+                </div>
+                <div class="tab-content" id="nav-tabContent">
+                    <div class="tab-pane fade show active"
+                         id="nav-home"
+                         role="tabpanel"
+                         aria-labelledby="nav-home-tab">
+                        <section class="container products clearfix"
+                                 data-component-products="limit:4 page:0 id:1679,807,786,1597"
+                                 data-products='{"1": "Mac pro", "2":"Ipod"}'>
+                            <div class="owl-carousel owl-theme">
+                                <div class="item" data-product>
+                                    <article class="product">
+                                        <a asp-controller="Products" asp-action="Details" asp-route-id=11>
+                                            <img src="@Url.Content("/images/merch/man-shirt.png")"
+                                                 class="img-fluid"
+                                                 data-img />
+                                        </a>
+
+                                        <h3>
+                                            <a asp-controller="Products" asp-action="Details" asp-route-id=11
+                                                data-product-url
+                                                data-name
+                                                data-url>Men white polo shirt
+                                            </a>
+                                        </h3>
+
+                                        <div class="price-group">
+                                            <div class="old-price">
+                                                <span class="currency" data-product-currency>$</span>
+                                                <span data-product-price>643</span>
+                                            </div>
+
+                                            <div class="price">
+                                                <span class="currency" data-product-currency>$</span>
+                                                <span data-product-price>643</span>
+                                            </div>
+                                        </div>
+
+                                        <div class="btngroup">
+                                            <a type="button"
+                                               class="btn btn-sm btn-secondary"
+                                               title="Add to Cart"
+                                               href=""
+                                               data-product-cart-url
+                                               data-vvveb-action="addCart"
+                                               data-product_id="40">
+                                                <i class="la la-shopping-cart"></i> Add to cart
+                                            </a>
+                                        </div>
+                                    </article>
+                                    <!-- product -->
+                                </div>
+                                <!-- col-md -->
+
+                                <div class="item" data-product>
+                                    <article class="product">
+                                        <a asp-controller="Products" asp-action="Details" asp-route-id=16>
+                                            <img src="@Url.Content("/images/merch/women-dress-purple.png")"
+                                                 class="img-fluid"
+                                                 data-img />
+                                        </a>
+
+                                        <h3>
+                                            <a asp-controller="Products" asp-action="Details" asp-route-id=16
+                                                data-product-url
+                                                data-name
+                                                data-url>Stunning dress
+                                            </a>
+                                        </h3>
+
+                                        <div class="price-group">
+                                            <div class="old-price">
+                                                <span class="currency" data-product-currency>$</span>
+                                                <span data-product-price>5634</span>
+                                            </div>
+
+                                            <div class="price">
+                                                <span class="currency" data-product-currency>$</span>
+                                                <span data-product-price>436</span>
+                                            </div>
+                                        </div>
+
+                                        <div class="btngroup">
+                                            <a type="button"
+                                               class="btn btn-sm btn-secondary"
+                                               title="Add to Cart"
+                                               href=""
+                                               data-product-cart-url
+                                               data-vvveb-action="addCart"
+                                               data-product_id="40">
+                                                <i class="la la-shopping-cart"></i> Add to cart
+                                            </a>
+                                        </div>
+                                    </article>
+                                    <!-- product -->
+                                </div>
+
+                                <div class="item" data-product>
+                                    <article class="product">
+                                        <a asp-controller="Products" asp-action="Details" asp-route-id=15>
+                                            <img src="@Url.Content("/images/merch/woman-shirt-green.png")"
+                                                 class="img-fluid"
+                                                 data-img />
+                                        </a>
+
+                                        <h3>
+                                            <a asp-controller="Products" asp-action="Details" asp-route-id=15
+                                                data-product-url
+                                                data-name
+                                                data-url>Woman green shirt
+                                            </a>
+                                        </h3>
+
+                                        <div class="price-group">
+                                            <div class="old-price">
+                                                <span class="currency" data-product-currency>$</span>
+                                                <span data-product-price>36</span>
+                                            </div>
+
+                                            <div class="price">
+                                                <span class="currency" data-product-currency>$</span>
+                                                <span data-product-price>643</span>
+                                            </div>
+                                        </div>
+
+                                        <div class="btngroup">
+                                            <button type="button"
+                                                    class="btn btn-sm btn-secondary"
+                                                    title="Add to Cart"
+                                                    data-product-cart-url
+                                                    data-vvveb-action="addCart">
+                                                <i class="la la-shopping-cart"></i> Add to cart
+                                            </button>
+                                        </div>
+                                    </article>
+                                    <!-- product -->
+                                </div>
+                                <!-- col-md -->
+
+                                <div class="item" data-product>
+                                    <article class="product">
+                                        <a asp-controller="Products" asp-action="Details" asp-route-id=12>
+                                            <img src="@Url.Content("/images/merch/man-shoe-brown.png")"
+                                                 class="img-fluid"
+                                                 data-img />
+                                        </a>
+
+                                        <h3>
+                                            <a asp-controller="Products" asp-action="Details" asp-route-id=12
+                                                data-product-url
+                                                data-name
+                                                data-url>Mens brown oxford
+                                            </a>
+                                        </h3>
+
+                                        <span class="description" data-product-description>
+                                            Lorem ipsum
+                                        </span>
+
+                                        <div class="price-group">
+                                            <div class="old-price">
+                                                <span class="currency" data-product-currency>$</span>
+                                                <span data-product-price>435</span>
+                                            </div>
+
+                                            <div class="price">
+                                                <span class="currency" data-product-currency>$</span>
+                                                <span data-product-price>543</span>
+                                            </div>
+                                        </div>
+
+                                        <div class="btngroup">
+                                            <button type="button"
+                                                    class="btn btn-sm btn-secondary"
+                                                    title="Add to Cart"
+                                                    data-product-cart-url
+                                                    data-vvveb-action="addCart">
+                                                <i class="la la-shopping-cart"></i> Add to cart
+                                            </button>
+
+
+                                        </div>
+                                    </article>
+                                    <!-- product -->
+                                </div>
+                                <!-- col-md -->
+
+                                <div class="item" data-product>
+                                    <article class="product">
+                                        <a asp-controller="Products" asp-action="Details" asp-route-id=14>
+                                            <img src="@Url.Content("/images/merch/woman-coat-white.png")"
+                                                 class="img-fluid"
+                                                 data-img />
+                                        </a>
+
+                                        <h3>
+                                            <a asp-controller="Products" asp-action="Details" asp-route-id=14
+                                                data-product-url
+                                                data-name
+                                                data-url>Woman white coat
+                                            </a>
+                                        </h3>
+
+                                        <div class="price-group">
+                                            <div class="old-price">
+                                                <span class="currency" data-product-currency>$</span>
+                                                <span data-product-price>543</span>
+                                            </div>
+
+                                            <div class="price">
+                                                <span class="currency" data-product-currency>$</span>
+                                                <span data-product-price>453</span>
+                                            </div>
+                                        </div>
+
+                                        <div class="btngroup">
+                                            <button type="button"
+                                                    class="btn btn-sm btn-secondary"
+                                                    title="Add to Cart"
+                                                    data-product-cart-url
+                                                    data-vvveb-action="addCart">
+                                                <i class="la la-shopping-cart"></i> Add to cart
+                                            </button>
+                                        </div>
+                                    </article>
+                                    <!-- product -->
+                                </div>
+                                <!-- col-md -->
+
+                                <div class="item" data-product>
+                                    <article class="product">
+                                        <a asp-controller="Products" asp-action="Details" asp-route-id=10>
+                                            <img src="@Url.Content("/images/merch/man-coat-blue.png")"
+                                                 class="img-fluid"
+                                                 data-img />
+                                        </a>
+
+                                        <h3>
+                                            <a asp-controller="Products" asp-action="Details" asp-route-id=10
+                                                data-product-url
+                                                data-name
+                                                data-url>Blue mens coat
+                                            </a>
+                                        </h3>
+
+                                        <div class="price-group">
+                                            <div class="old-price">
+                                                <span class="currency" data-product-currency>$</span>
+                                                <span data-product-price>634</span>
+                                            </div>
+
+                                            <div class="price">
+                                                <span class="currency" data-product-currency>$</span>
+                                                <span data-product-price>436</span>
+                                            </div>
+                                        </div>
+
+                                        <div class="btngroup">
+                                            <button type="button"
+                                                    class="btn btn-sm btn-secondary"
+                                                    title="Add to Cart"
+                                                    data-product-cart-url
+                                                    data-vvveb-action="addCart">
+                                                <i class="la la-shopping-cart"></i> Add to cart
+                                            </button>
+                                        </div>
+                                    </article>
+                                    <!-- product -->
+                                </div>
+                                <!-- col-md -->
+
+                                <div class="item" data-product>
+                                    <article class="product">
+                                        <a asp-controller="Products" asp-action="Details" asp-route-id=13>
+                                            <img src="@Url.Content("/images/merch/man-shorts-black.png")"
+                                                 class="img-fluid"
+                                                 data-img />
+                                        </a>
+
+                                        <h3>
+                                            <a asp-controller="Products" asp-action="Details" asp-route-id=13
+                                                data-product-url
+                                                data-name
+                                                data-url>Black mens shorts
+                                            </a>
+                                        </h3>
+
+                                        <div class="price-group">
+                                            <div class="old-price">
+                                                <span class="currency" data-product-currency>$</span>
+                                                <span data-product-price>643</span>
+                                            </div>
+
+                                            <div class="price">
+                                                <span class="currency" data-product-currency>$</span>
+                                                <span data-product-price>643</span>
+                                            </div>
+                                        </div>
+
+                                        <div class="btngroup">
+                                            <button type="button"
+                                                    class="btn btn-sm btn-secondary"
+                                                    title="Add to Cart"
+                                                    data-product-cart-url
+                                                    data-vvveb-action="addCart">
+                                                <i class="la la-shopping-cart"></i> Add to cart
+                                            </button>
+
+
+                                        </div>
+                                    </article>
+                                    <!-- product -->
+                                </div>
+                                <!-- col-md -->
+                            </div>
+                            <!-- row -->
+                        </section>
+                        <!-- products -->
+                    </div>
+                    <div class="tab-pane fade"
+                         id="nav-profile"
+                         role="tabpanel"
+                         aria-labelledby="nav-profile-tab"></div>
+
+                    <div class="tab-pane fade"
+                         id="nav-contact"
+                         role="tabpanel"
+                         aria-labelledby="nav-contact-tab"></div>
+                </div>
+            </div>
+
+            <section id="parallax_1" class="module parallax white mb-3">
+                <div>
+                    <div class="container">
+                        <h3>Browse all clothing categories!</h3>
+                        <p>
+                            We have renewed our collection and are now featured in Milan Fashion Show<br />
+                            Look at all our speacial and amazing styles!
+                        </p>
+                        <a href="https://localhost:44328/categories/index"
+                           class="btn btn-default">Browse categories</a>
+                    </div>
+                </div>
+            </section>
+
+            <div class="container products-tab-carousel">
+                <div class="nav nav-tabs" id="nav-tab" role="tablist">
+                    <a class="nav-item nav-link active"
+                       id="nav-home-tab"
+                       data-toggle="tab"
+                       href="#nav-home"
+                       role="tab"
+                       aria-controls="nav-home"
+                       aria-selected="true">Currently on sale</a>
+
+                </div>
+                <div class="tab-content" id="nav-tabContent">
+                    <div class="tab-pane fade show active"
+                         id="nav-home"
+                         role="tabpanel"
+                         aria-labelledby="nav-home-tab">
+                        <section class="container products clearfix"
+                                 data-component-products="limit:4 page:0 id:1679,807,786,1597"
+                                 data-products='{"1": "Mac pro", "2":"Ipod"}'>
+                            <div class="owl-carousel owl-theme">
+
+
+                                <div class="item" data-product>
+                                    <article class="product">
+                                        <a asp-controller="Products" asp-action="Details" asp-route-id=10>
+                                            <img src="@Url.Content("/images/merch/man-coat-blue.png")"
+                                                 class="img-fluid"
+                                                 data-img />
+                                        </a>
+
+                                        <h3>
+                                            <a asp-controller="Products" asp-action="Details" asp-route-id=10
+                                                data-product-url
+                                                data-name
+                                                data-url>Blue mens coat
+                                            </a>
+                                        </h3>
+
+                                        <div class="price-group">
+                                            <div class="old-price">
+                                                <span class="currency" data-product-currency>$</span>
+                                                <span data-product-price>240</span>
+                                            </div>
+
+                                            <div class="price">
+                                                <span class="currency" data-product-currency>$</span>
+                                                <span data-product-price>89</span>
+                                            </div>
+                                        </div>
+
+                                        <div class="btngroup">
+                                            <button type="button"
+                                                    class="btn btn-sm btn-secondary"
+                                                    title="Add to Cart"
+                                                    data-product-cart-url
+                                                    data-vvveb-action="addCart">
+                                                <i class="la la-shopping-cart"></i> Add to cart
+                                            </button>
+                                        </div>
+                                    </article>
+                                    <!-- product -->
+                                </div>
+                                <!-- col-md -->
+                                <div class="item" data-product>
+                                    <article class="product">
+                                        <a asp-controller="Products" asp-action="Details" asp-route-id=11>
+                                            <img src="@Url.Content("/images/merch/man-shirt.png")"
+                                                 class="img-fluid"
+                                                 data-img />
+                                        </a>
+
+                                        <h3>
+                                            <a asp-controller="Products" asp-action="Details" asp-route-id=11
+                                                data-product-url
+                                                data-name
+                                                data-url>Men white polo shirt
+                                            </a>
+                                        </h3>
+
+                                        <div class="price-group">
+                                            <div class="old-price">
+                                                <span class="currency" data-product-currency>$</span>
+                                                <span data-product-price>385</span>
+                                            </div>
+
+                                            <div class="price">
+                                                <span class="currency" data-product-currency>$</span>
+                                                <span data-product-price>315</span>
+                                            </div>
+                                        </div>
+
+                                        <div class="btngroup">
+                                            <a type="button"
+                                               class="btn btn-sm btn-secondary"
+                                               title="Add to Cart"
+                                               href=""
+                                               data-product-cart-url
+                                               data-vvveb-action="addCart"
+                                               data-product_id="40">
+                                                <i class="la la-shopping-cart"></i> Add to cart
+                                            </a>
+                                        </div>
+                                    </article>
+                                    <!-- product -->
+                                </div>
+                                <!-- col-md -->
+
+                                <div class="item" data-product>
+                                    <article class="product">
+                                        <a asp-controller="Products" asp-action="Details" asp-route-id=16>
+                                            <img src="@Url.Content("/images/merch/women-dress-purple.png")"
+                                                 class="img-fluid"
+                                                 data-img />
+                                        </a>
+
+                                        <h3>
+                                            <a asp-controller="Products" asp-action="Details" asp-route-id=16
+                                                data-product-url
+                                                data-name
+                                                data-url>Stunning dress
+                                            </a>
+                                        </h3>
+
+                                        <div class="price-group">
+                                            <div class="old-price">
+                                                <span class="currency" data-product-currency>$</span>
+                                                <span data-product-price>202</span>
+                                            </div>
+
+                                            <div class="price">
+                                                <span class="currency" data-product-currency>$</span>
+                                                <span data-product-price>130</span>
+                                            </div>
+                                        </div>
+
+                                        <div class="btngroup">
+                                            <a type="button"
+                                               class="btn btn-sm btn-secondary"
+                                               title="Add to Cart"
+                                               href=""
+                                               data-product-cart-url
+                                               data-vvveb-action="addCart"
+                                               data-product_id="40">
+                                                <i class="la la-shopping-cart"></i> Add to cart
+                                            </a>
+                                        </div>
+                                    </article>
+                                    <!-- product -->
+                                </div>
+
+                                <div class="item" data-product>
+                                    <article class="product">
+                                        <a asp-controller="Products" asp-action="Details" asp-route-id=15>
+                                            <img src="@Url.Content("/images/merch/woman-shirt-green.png")"
+                                                 class="img-fluid"
+                                                 data-img />
+                                        </a>
+
+                                        <h3>
+                                            <a asp-controller="Products" asp-action="Details" asp-route-id=15
+                                                data-product-url
+                                                data-name
+                                                data-url>Woman green shirt
+                                            </a>
+                                        </h3>
+
+                                        <div class="price-group">
+                                            <div class="old-price">
+                                                <span class="currency" data-product-currency>$</span>
+                                                <span data-product-price>230</span>
+                                            </div>
+
+                                            <div class="price">
+                                                <span class="currency" data-product-currency>$</span>
+                                                <span data-product-price>199</span>
+                                            </div>
+                                        </div>
+
+                                        <div class="btngroup">
+                                            <button type="button"
+                                                    class="btn btn-sm btn-secondary"
+                                                    title="Add to Cart"
+                                                    data-product-cart-url
+                                                    data-vvveb-action="addCart">
+                                                <i class="la la-shopping-cart"></i> Add to cart
+                                            </button>
+                                        </div>
+                                    </article>
+                                    <!-- product -->
+                                </div>
+                                <!-- col-md -->
+
+                                <div class="item" data-product>
+                                    <article class="product">
+                                        <a asp-controller="Products" asp-action="Details" asp-route-id=12>
+                                            <img src="@Url.Content("/images/merch/man-shoe-brown.png")"
+                                                 class="img-fluid"
+                                                 data-img />
+                                        </a>
+
+                                        <h3>
+                                            <a asp-controller="Products" asp-action="Details" asp-route-id=12
+                                                data-product-url
+                                                data-name
+                                                data-url>Mens brown oxford
+                                            </a>
+                                        </h3>
+
+                                        <span class="description" data-product-description>
+                                            Lorem ipsum
+                                        </span>
+
+                                        <div class="price-group">
+                                            <div class="old-price">
+                                                <span class="currency" data-product-currency>$</span>
+                                                <span data-product-price>460</span>
+                                            </div>
+
+                                            <div class="price">
+                                                <span class="currency" data-product-currency>$</span>
+                                                <span data-product-price>299</span>
+                                            </div>
+                                        </div>
+
+                                        <div class="btngroup">
+                                            <button type="button"
+                                                    class="btn btn-sm btn-secondary"
+                                                    title="Add to Cart"
+                                                    data-product-cart-url
+                                                    data-vvveb-action="addCart">
+                                                <i class="la la-shopping-cart"></i> Add to cart
+                                            </button>
+
+
+                                        </div>
+                                    </article>
+                                    <!-- product -->
+                                </div>
+                                <!-- col-md -->
+
+                                <div class="item" data-product>
+                                    <article class="product">
+                                        <a asp-controller="Products" asp-action="Details" asp-route-id=14>
+                                            <img src="@Url.Content("/images/merch/woman-coat-white.png")"
+                                                 class="img-fluid"
+                                                 data-img />
+                                        </a>
+
+                                        <h3>
+                                            <a asp-controller="Products" asp-action="Details" asp-route-id=14
+                                                data-product-url
+                                                data-name
+                                                data-url>Woman white coat
+                                            </a>
+                                        </h3>
+
+                                        <div class="price-group">
+                                            <div class="old-price">
+                                                <span class="currency" data-product-currency>$</span>
+                                                <span data-product-price>368</span>
+                                            </div>
+
+                                            <div class="price">
+                                                <span class="currency" data-product-currency>$</span>
+                                                <span data-product-price>320</span>
+                                            </div>
+                                        </div>
+
+                                        <div class="btngroup">
+                                            <button type="button"
+                                                    class="btn btn-sm btn-secondary"
+                                                    title="Add to Cart"
+                                                    data-product-cart-url
+                                                    data-vvveb-action="addCart">
+                                                <i class="la la-shopping-cart"></i> Add to cart
+                                            </button>
+                                        </div>
+                                    </article>
+                                    <!-- product -->
+                                </div>
+                                <!-- col-md -->
+
+                                <div class="item" data-product>
+                                    <article class="product">
+                                        <a asp-controller="Products" asp-action="Details" asp-route-id=13>
+                                            <img src="@Url.Content("/images/merch/man-shorts-black.png")"
+                                                 class="img-fluid"
+                                                 data-img />
+                                        </a>
+
+                                        <h3>
+                                            <a asp-controller="Products" asp-action="Details" asp-route-id=13
+                                                data-product-url
+                                                data-name
+                                                data-url>Black mens shorts
+                                            </a>
+                                        </h3>
+
+                                        <div class="price-group">
+                                            <div class="old-price">
+                                                <span class="currency" data-product-currency>$</span>
+                                                <span data-product-price>220</span>
+                                            </div>
+
+                                            <div class="price">
+                                                <span class="currency" data-product-currency>$</span>
+                                                <span data-product-price>170</span>
+                                            </div>
+                                        </div>
+
+                                        <div class="btngroup">
+                                            <button type="button"
+                                                    class="btn btn-sm btn-secondary"
+                                                    title="Add to Cart"
+                                                    data-product-cart-url
+                                                    data-vvveb-action="addCart">
+                                                <i class="la la-shopping-cart"></i> Add to cart
+                                            </button>
+
+
+                                        </div>
+                                    </article>
+                                    <!-- product -->
+                                </div>
+                                <!-- col-md -->
+                            </div>
+                            <!-- row -->
+                        </section>
+                        <!-- products -->
+                    </div>
+                    <div class="tab-pane fade"
+                         id="nav-profile"
+                         role="tabpanel"
+                         aria-labelledby="nav-profile-tab"></div>
+
+                    <div class="tab-pane fade"
+                         id="nav-contact"
+                         role="tabpanel"
+                         aria-labelledby="nav-contact-tab"></div>
+                </div>
+            </div>
+        </div>
+
+        <div class="alert alert-light alert-dismissible fade alert-top"
+             role="alert">
+            <div class="container">
+                <div class="message">Product was added to cart.</div>
+
+                <button type="button" class="close" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <script src="@Url.Content("/js/jquery.min.js")"></script>
+    <!-- script src="https://cdnjs.cloudflare.com/ajax/libs/tether/1.4.0/js/tether.min.js" integrity="sha384-DztdAPBWPRXSA/3eYEEUWrWCy7G5KFbe8fFjk5JAIxUYHKkDx6Qin1DkWx51bBrb" crossorigin="anonymous"></script -->
+    <script src="@Url.Content("/js/popper.min.js")"></script>
+    <script src="@Url.Content("/js/main.js")"></script>
+    <script src="@Url.Content("/js/bootstrap.min.js")"></script>
+    <script src="@Url.Content("/js/owl.carousel.min.js")"></script>
+
+    <script>
+      $(".owl-carousel").owlCarousel({
+        loop: true,
+        navRewind: true,
+        margin: 10,
+        nav: true,
+        dots: false,
+        navText: [
+          '<i class="la la-angle-left"></i>',
+          '<i class="la la-angle-right"></i> ',
+        ],
+        responsive: {
+          0: {
+            items: 1,
+          },
+          600: {
+            items: 3,
+          },
+          1000: {
+            items: 5,
+          },
+        },
+      });
+    </script>
+</body>
